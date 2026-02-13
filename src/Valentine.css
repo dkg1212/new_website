@@ -1,105 +1,121 @@
-/* Container and Centering */
+/* Full Screen Centering */
 .valentine-container {
   display: flex;
   justify-content: center;
   align-items: center; 
   min-height: 100vh;
-  width: 100%;
-  background-color: #fdc3c9;
+  width: 100vw;
+  background: linear-gradient(135deg, #ffd6e0, #ffc2d1, #ffb3c6);
+  overflow: hidden;
+  margin: 0;
+}
+
+/* Envelope Wrapper */
+.valentines {
+  position: relative;
+  cursor: pointer;
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Envelope Body */
+.envelope {
+  position: relative;
+  width: 320px;
+  height: 210px;
+  background: linear-gradient(145deg, #8a05ff, #b14cff);
+  border-radius: 12px;
+  box-shadow: 
+    0 25px 60px rgba(138, 5, 255, 0.4),
+    inset 0 5px 10px rgba(255,255,255,0.15);
   overflow: hidden;
 }
 
-/* Envelope and Card */
-.valentines-envelope {
-  position: relative;
-  cursor: pointer;
-  animation: up 3s linear infinite;
-}
-
-.envelope-body {
-  position: relative;
-  width: 300px;
-  height: 200px;
-  background-color: #8202d2; 
-  border: 2px solid #ac32f8;
-  border-radius: 5px;
-  z-index: 2;
-}
-
-.envelope-body:before {
-  background-color: #8202d2; 
+/* Top Triangle */
+.envelope:before {
   content: "";
   position: absolute;
-  width: 212px;
-  height: 212px;
+  width: 230px;
+  height: 230px;
+  background: linear-gradient(145deg, #8a05ff, #b14cff);
   transform: rotate(45deg);
-  top: -105px;
-  left: 44px;
+  top: -115px;
+  left: 45px;
   border-radius: 30px 0 0 0;
+  box-shadow: inset 0 3px 8px rgba(255,255,255,0.15);
 }
 
-.envelope-card {
+/* Card */
+.card {
   position: absolute;
-  background-color: #ecbae6;
-  width: 270px;
-  height: 170px;
+  background: linear-gradient(135deg, #ffffff, #ffe9f5);
+  width: 290px;
+  height: 180px;
   top: 15px;
   left: 15px;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  box-shadow: -5px -5px 100px rgba(0,0,0,0.4); 
-  animation: card-float 3s linear infinite;  
-  z-index: 1; /* Behind the front flap, in front of the back */
+  border-radius: 20px;
+  box-shadow: 
+    0 20px 50px rgba(0,0,0,0.25);
+  animation: slide 4s ease-in-out infinite;  
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-@keyframes card-float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-110px); }
-}
-
-.envelope-card:before {
+/* Card Border */
+.card:before {
   content: "";
   position: absolute;
-  border: 3px solid #a504f6;
-  border-style: dotted;
-  width: 240px;
-  height: 140px;
-  left: 12px;
-  top: 12px;
+  border: 3px dashed #c918f6;
+  width: 250px;
+  height: 150px;
+  left: 17px;
+  top: 15px;
+  border-radius: 15px;
 }
 
-.envelope-text {
+/* Text */
+.card-text {
   font-family: 'Brush Script MT', cursive;
-  font-size: 22px;
+  font-size: 26px;
   text-align: center;
-  color: #003049;
-  padding-top: 30px;
+  color: #7209b7;
+  text-shadow: 0 3px 8px rgba(255, 182, 255, 0.5);
+  line-height: 1.4;
+  z-index: 10;
 }
 
-.envelope-front {
+/* Right Side Flap */
+.front {
   position: absolute;
-  border-right: 180px solid #8202d2;
-  border-top: 95px solid transparent;
-  border-bottom: 100px solid transparent;
-  left: 120px;
-  top: 5px;
+  border-right: 190px solid #8a05ff;
+  border-top: 105px solid transparent;
+  border-bottom: 105px solid transparent;
+  left: 130px;
+  top: 0;
   width: 0;
   height: 0;
-  z-index: 10; /* Keeps flap in front */
+  z-index: 10;
 }
 
-.envelope-front:before {
-  position: absolute;
+.front:before {
   content: "";
-  border-left: 300px solid #ac32f8;
-  border-top: 195px solid transparent;
-  left: -120px;
-  top: -95px;
-  width: 0;
-  height: 0;
+  position: absolute;
+  border-left: 320px solid #b14cff;
+  border-top: 210px solid transparent;
+  left: -130px;
+  top: -105px;
 }
 
-@keyframes up {
+/* Floating animation */
+@keyframes float {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-30px); }
+  50% { transform: translateY(-35px); }
+}
+
+/* Card sliding animation */
+@keyframes slide {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-120px); }
+  100% { transform: translateY(0); }
 }
