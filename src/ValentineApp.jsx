@@ -177,14 +177,18 @@ const Valentine = () => {
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.8 }}
             className="valentines relative flex items-center justify-center"
-            onClick={() =>
-              confetti({
-                particleCount: 120,
-                spread: 100,
-                origin: { y: 0.5 },
-                colors: ["#ff4d6d", "#c9184a", "#ff758f", "#ffffff"]
-              })
-            }
+            onClick={() => {
+  confetti({
+    particleCount: 150,
+    spread: 120,
+    origin: { y: 0.5 },
+    colors: ["#ff4d6d", "#c9184a", "#ff758f", "#ffffff"]
+  });
+  setTimeout(() => {
+    setStep(5);
+  }, 1000);
+}}
+
           >
             <div className="absolute w-72 sm:w-96 h-72 sm:h-96 bg-rose-400/30 rounded-full blur-3xl animate-pulse"></div>
 
@@ -208,6 +212,56 @@ const Valentine = () => {
             </div>
           </motion.div>
         )}
+
+        {/* STEP 5 – FINAL LOVE SCREEN */}
+{step === 5 && (
+  <motion.div
+    key="final-step"
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity: 0 }}
+    transition={{ duration: 0.8 }}
+    className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-rose-500 via-pink-500 to-red-600 text-white px-6 text-center"
+  >
+    <motion.div
+      initial={{ scale: 0.8 }}
+      animate={{ scale: 1 }}
+      transition={{ duration: 0.6 }}
+      className="max-w-md"
+    >
+      <motion.h1
+        initial={{ y: -20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ delay: 0.3 }}
+        className="text-3xl sm:text-5xl font-bold mb-6"
+      >
+        Forever With You ❤️
+      </motion.h1>
+
+      <motion.p
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.8 }}
+        className="text-sm sm:text-lg leading-relaxed mb-6"
+      >
+        Loving you is the easiest thing I’ve ever done.
+        You are my comfort, my happiness, my safe place.
+        Every single day with you feels special.
+        I am so lucky to call you mine.
+      </motion.p>
+
+      <motion.div
+        initial={{ scale: 0 }}
+        animate={{ scale: 1 }}
+        transition={{ delay: 1.3 }}
+        className="text-4xl sm:text-6xl font-extrabold"
+      >
+        I Love You So Much 💖
+      </motion.div>
+    </motion.div>
+  </motion.div>
+)}
+
 
       </AnimatePresence>
     </div>
