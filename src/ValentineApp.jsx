@@ -244,10 +244,10 @@ const Valentine = () => {
         transition={{ delay: 0.8 }}
         className="text-sm sm:text-lg leading-relaxed mb-6"
       >
-        Loving you is the easiest thing I’ve ever done.
-        You are my comfort, my happiness, my safe place.
-        Every single day with you feels special.
-        I am so lucky to call you mine.
+        তোমাক ভালপোৱা মোৰ জীৱনৰ আটাইতকৈ সহজ কাম।
+তুমি মোৰ আৰাম, মোৰ সুখ, মোৰ নিৰাপদ ঠাই।
+তোমাৰ সৈতে প্ৰতিটো দিনেই বিশেষ অনুভৱ হয়।
+তোমাক মোৰ বুলি ক’ব পাৰোঁ বাবে মই বৰ সৌভাগ্যৱান।
       </motion.p>
 
       <motion.div
